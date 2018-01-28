@@ -1,12 +1,18 @@
 {
-    "name": "root/jlib",
-    "authors": [
-        {
-            "name": "Yousif Aziz",
-            "email": "yousif.aziz@hive-ad.com"
-        }
-    ],
-    "require": {
-        "jlib/misc": "^1.0"
+  "name": "jlib",
+  "authors": [
+    {
+      "name": "Yousif Aziz",
+      "email": "en.yousif.aziz@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Jlib\\": "src/"
+    }
+  },
+  "require": {
+    "jlib/misc": "^1.0",
+    "illuminate/support": "^5.5"
+  }
 }
