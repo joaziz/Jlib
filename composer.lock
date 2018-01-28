@@ -1,0 +1,50 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "5033866717a96a6f5db68bfde76d1f84",
+    "content-hash": "99320b00211a5bcbbcc4afe90ed7d875",
+    "packages": [
+        {
+            "name": "jlib/misc",
+            "version": "1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jooaziz/jlib-misc.git",
+                "reference": "ef3fe54c56ad39cdec71b4dfdc38510e06c6ed24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jooaziz/jlib-misc/zipball/ef3fe54c56ad39cdec71b4dfdc38510e06c6ed24",
+                "reference": "ef3fe54c56ad39cdec71b4dfdc38510e06c6ed24",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "class",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yousif aziz",
+                    "email": "en.yousif.aziz@gmail.com"
+                }
+            ],
+            "description": "some class to help",
+            "time": "2018-01-28 13:17:06"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

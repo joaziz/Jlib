@@ -1,0 +1,12 @@
+{
+    "name": "root/jlib",
+    "authors": [
+        {
+            "name": "Yousif Aziz",
+            "email": "yousif.aziz@hive-ad.com"
+        }
+    ],
+    "require": {
+        "jlib/misc": "^1.0"
+    }
+}
