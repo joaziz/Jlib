@@ -8,6 +8,7 @@
     }
   ],
   "autoload": {
+    "files":["src/HelperMethods.php"],
     "psr-4": {
       "Jlib\\": "src/"
     }
@@ -16,11 +17,11 @@
     "jlib/misc": "^1.0",
     "illuminate/support": "^5.5"
   },
-"extra": {
+  "extra": {
     "laravel": {
-        "providers": [
-            "Jlib\\JlibServiceProvider"
-        ]
+      "providers": [
+        "Jlib\\JlibServiceProvider"
+      ]
     }
-}
+  }
 }
