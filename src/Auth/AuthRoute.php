@@ -4,8 +4,11 @@ namespace Jlib\Auth;
 
 use Jlib\Auth\Contracts\AuthControllerInterface;
 use Exception;
+use Jlib\Auth\Middleware\AccessLog;
 use Jlib\Auth\Middleware\AuthUser;
 use Jlib\Auth\Middleware\GuestUser;
+use Jlib\Auth\Middleware\InitAuth;
+use Route;
 
 /**
  * Created by PhpStorm.
@@ -66,19 +69,19 @@ class AuthRoute
 
 
         self::addMoreAuthRoutes($scope, function () use ($controller) {
-            \Route::get("/", "\\" . $controller . "@dashboard");
-            \Route::get("/auth/logout", "\\" . $controller . "@getLogout");
+            Route::get("/", "\\" . $controller . "@dashboard");
+            Route::get("/auth/logout", "\\" . $controller . "@getLogout");
         });
 
         self::addMoreGuestRoutes($scope, function () use ($controller) {
-            \Route::get("/auth/login", "\\" . $controller . "@getLogin");
-            \Route::post("/auth/login", "\\" . $controller . "@postLogin");
+            Route::get("/auth/login", "\\" . $controller . "@getLogin");
+            Route::post("/auth/login", "\\" . $controller . "@postLogin");
 
-            \Route::get("/auth/sing-up", "\\" . $controller . "@getSingUp");
-            \Route::post("/auth/sing-up", "\\" . $controller . "@postSingUp");
+            Route::get("/auth/sing-up", "\\" . $controller . "@getSingUp");
+            Route::post("/auth/sing-up", "\\" . $controller . "@postSingUp");
 
-            \Route::get("/auth/forget-password", "\\" . $controller . "@getForgetPassword");
-            \Route::post("/auth/forget-password", "\\" . $controller . "@postForgetPassword");
+            Route::get("/auth/forget-password", "\\" . $controller . "@getForgetPassword");
+            Route::post("/auth/forget-password", "\\" . $controller . "@postForgetPassword");
         });
     }
 
@@ -88,8 +91,9 @@ class AuthRoute
      */
     public static function addMoreAuthRoutes($scope, \Closure $closure)
     {
-        \Route::group(["prefix" => $scope], function () use ($scope, $closure) {
-            \Route::group(["middleware" => AuthUser::class . ":" . $scope], function () use ($closure) {
+
+        self::addRouteToGroup($scope, function () use ($scope, $closure) {
+            Route::group(["middleware" => AuthUser::class . ":" . $scope], function () use ($closure) {
                 $closure();
             });
         });
@@ -101,11 +105,26 @@ class AuthRoute
      */
     public static function addMoreGuestRoutes($scope, \Closure $closure)
     {
-        \Route::group(["prefix" => $scope], function () use ($scope, $closure) {
+        self::addRouteToGroup($scope, function () use ($scope, $closure) {
             \Route::group(["middleware" => GuestUser::class . ":" . $scope], function () use ($closure) {
                 $closure();
             });
         });
+
     }
 
+    private static function addRouteToGroup($scope, \Closure $closure)
+    {
+
+        $middleware = [
+            "web",
+            InitAuth::class.":$scope", // init auth module for project
+            AccessLog::class // set access log
+        ];
+
+
+        \Route::group(["middleware" => $middleware, "prefix" => $scope], function () use ($closure) {
+            $closure();
+        });
+    }
 }

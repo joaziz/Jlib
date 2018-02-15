@@ -7,11 +7,34 @@
  */
 
 
-return [
-    "basePath" => __DIR__,
-    "adminAuth" => [
-        "scopeDomain" => "panel",
-    ]
+return (function () {
 
+    $scope = "panel";
 
-];
+    return [
+        /*
+         *  current path for this file
+         */
+        "basePath" => __DIR__,
+        /*
+         * admin auth configs
+         */
+        "adminAuth" => [
+            // domain uri for admin scope you can change it
+            "scopeDomain" => $scope,
+
+        ],
+        "company" => [
+            "name" => "Hive Advertising",
+            "website" => "http://hive-ad.com",
+        ],
+        "shared" => [
+            "panelURI" => url($scope),
+            "JLibScope" => $scope,
+            "adminTitle" => "Hive Admin Panel",
+            "companyName" => "Hive Advertising",
+            "companyWebsite" => "http://hive-ad.com",
+        ],
+
+    ];
+})();

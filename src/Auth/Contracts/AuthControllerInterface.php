@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
  */
 interface AuthControllerInterface
 {
+    public function dashboard();
+
     public function getLogin();
 
     public function postLogin(Request $request);

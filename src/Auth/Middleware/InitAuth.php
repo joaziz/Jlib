@@ -1,20 +1,23 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: joe
+ * Date: 14/02/18
+ * Time: 04:25 م
+ */
 
 namespace Jlib\Auth\Middleware;
+
 
 use Illuminate\Http\Request;
 use Jlib\Auth\AuthenticatedUser;
 
-
-class AuthUser
+class InitAuth
 {
     public function handle(Request $request, \Closure $next, $scope)
     {
 
-        if (!($user = AuthenticatedUser::getUser()))
-            return redirect()->to("$scope/auth/login");
-
-        view()->share("authUser", $user);
+        AuthenticatedUser::setEndFix($scope);
         return $next($request);
     }
 }

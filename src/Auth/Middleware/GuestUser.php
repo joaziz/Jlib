@@ -3,6 +3,7 @@
 namespace Jlib\Auth\Middleware;
 
 use Illuminate\Http\Request;
+use Jlib\Auth\AuthenticatedUser;
 
 /**
  * Created by PhpStorm.
@@ -14,6 +15,9 @@ class GuestUser
 {
     public function handle(Request $request, \Closure $next,$scope)
     {
+
+        if(AuthenticatedUser::getUser())
+            return redirect()->to("$scope");
 
         return $next($request);
     }

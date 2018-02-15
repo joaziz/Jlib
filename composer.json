@@ -8,7 +8,9 @@
     }
   ],
   "autoload": {
-    "files":["src/HelperMethods.php"],
+    "files": [
+      "src/HelperMethods.php"
+    ],
     "psr-4": {
       "Jlib\\": "src/"
     }

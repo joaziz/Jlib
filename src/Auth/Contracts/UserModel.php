@@ -26,6 +26,8 @@ interface UserModel
 
     public function isActive();
 
+    public function isTokenExpire(): bool;
+
     public function makeForgetPassword(): bool;
 
     public function reActiveUserAfterForgetPassword(): bool;

@@ -7,7 +7,7 @@
  */
 
 
-if (function_exists("_T")) {
+if (!function_exists("_T")) {
     /**
      * @param $key
      * @param array $replace
@@ -16,13 +16,14 @@ if (function_exists("_T")) {
      */
     function _T($key, $replace = [], $locale = null)
     {
+
         return __($key, $replace, $locale);
     }
 
 }
 
 
-if (function_exists("JConfig")) {
+if (!function_exists("JConfig")) {
     /**
      * @param $key
      * @param array $replace
@@ -31,9 +32,19 @@ if (function_exists("JConfig")) {
      */
     function JConfig()
     {
-        return require "Config.php";
+        static $configs = null;
+
+        if ($configs === null)
+            $configs = require "Config.php";
+
+
+        return $configs;
     }
 
 }
 
-
+function getControllerNameFromClass($class)
+{
+    $parts = explode("\\", get_class($class));
+    return str_replace("Controller", "", end($parts));
+}
