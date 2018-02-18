@@ -30,15 +30,23 @@ if (!function_exists("JConfig")) {
      * @param null $locale
      * @return array|null|string
      */
-    function JConfig()
+    function JConfig($key = null)
     {
         static $configs = null;
 
         if ($configs === null)
             $configs = require "Config.php";
 
+        if (is_null($key))
+            return $configs;
 
-        return $configs;
+        $parts = explode(".",$key);
+
+        $rt = $configs;
+        foreach ($parts as $part)
+            $rt = $rt[$part];
+
+        return $rt;
     }
 
 }

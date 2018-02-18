@@ -48,7 +48,7 @@ class JlibServiceProvider extends ServiceProvider
       * load jlib modules like auth menus pages etc...
       */
 
-        $path = base_path("vendor{$this->DS}jlib{$this->DS}JModules");
+        $path = base_path("vendor{$this->DS}jlib{$this->DS}jmodules{$this->DS}src");
 
         if (File::exists($path))
             LoadModule::make($this, $path)->load();

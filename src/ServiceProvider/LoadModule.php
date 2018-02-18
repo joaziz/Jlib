@@ -65,6 +65,7 @@ class LoadModule
 
     private function loadModuleRoutes($directory)
     {
+
         $routeDirectory = $this->dir . DIRECTORY_SEPARATOR . $directory . DIRECTORY_SEPARATOR . "routes";
         $routesFiles = File::allFiles($routeDirectory);
 
