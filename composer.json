@@ -16,7 +16,7 @@
     }
   },
   "require": {
-    "jlib/misc": "^1.0",
+    "jlib/misc": ">=v1.1.0",
     "illuminate/support": "^5.5"
   },
   "extra": {

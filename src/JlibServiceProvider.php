@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use File;
 use Jlib\HtmlHelper\MenuMaker\Contracts\MenuMaker;
 use Jlib\HtmlHelper\MenuMaker\ModuleLinks;
+use Jlib\PluginsLoader\Loader;
 use Jlib\ServiceProvider\LoadModule;
 
 
@@ -39,6 +40,17 @@ class JlibServiceProvider extends ServiceProvider
          * you can add edit or delete what you want
          */
         $this->sharedVarsInViews();
+
+
+        /*
+         * load plugin loader
+         * it responsable for load plugins from plugin package
+         *
+         */
+        $pluginsPath = base_path("vendor{$this->DS}jlib{$this->DS}plugins{$this->DS}src");
+
+        if (File::exists($pluginsPath))
+            Loader::load($pluginsPath);
 
 
         /*

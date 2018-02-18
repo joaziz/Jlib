@@ -8,6 +8,7 @@ use Jlib\Auth\Middleware\AccessLog;
 use Jlib\Auth\Middleware\AuthUser;
 use Jlib\Auth\Middleware\GuestUser;
 use Jlib\Auth\Middleware\InitAuth;
+use Jlib\PluginsLoader\Loader;
 use Route;
 
 /**
@@ -116,12 +117,21 @@ class AuthRoute
     private static function addRouteToGroup($scope, \Closure $closure)
     {
 
-        $middleware = [
+        $baseMiddleware = [
             "web",
-            InitAuth::class.":$scope", // init auth module for project
+            InitAuth::class . ":$scope", // init auth module for project
             AccessLog::class // set access log
         ];
 
+        /*
+         *  load plugin middleware and pass scope to it
+         */
+        $pluginsMiddleware = Loader::getPluginsClasses($scope);
+
+        /*
+         * marge both of tow middleware groups;
+         */
+        $middleware = array_merge($baseMiddleware, $pluginsMiddleware);
 
         \Route::group(["middleware" => $middleware, "prefix" => $scope], function () use ($closure) {
             $closure();
