@@ -47,8 +47,11 @@ class JlibServiceProvider extends ServiceProvider
       * for admin login and it use config file to load some cnfgis
       * load jlib modules like auth menus pages etc...
       */
-        LoadModule::make($this, __DIR__ . DIRECTORY_SEPARATOR . "JModules")
-            ->load();
+
+        $path = base_path("vendor{$this->DS}jlib{$this->DS}JModules");
+
+        if (File::exists($path))
+            LoadModule::make($this, $path)->load();
 
 
         /*
