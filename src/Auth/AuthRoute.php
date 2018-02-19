@@ -120,7 +120,7 @@ class AuthRoute
         $baseMiddleware = [
             "web",
             InitAuth::class . ":$scope", // init auth module for project
-            AccessLog::class // set access log
+
         ];
 
         /*
@@ -138,3 +138,4 @@ class AuthRoute
         });
     }
 }
+

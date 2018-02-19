@@ -14,6 +14,6 @@ use Illuminate\Http\Request;
 interface PluginLoaderInterface
 {
 
-    public function handle(Request $request, \Closure $next);
+    public function handle(Request $request, \Closure $next,$scope=null);
 
 }

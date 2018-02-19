@@ -11,6 +11,7 @@ namespace Jlib\Auth;
 
 use Jlib\Auth\Contracts\UserModel;
 use Jlib\Auth\Helper\Response;
+use Jlib\JModules\AdminAuth\Models\Admin;
 
 class AuthLogic
 {
@@ -21,6 +22,7 @@ class AuthLogic
      */
     public static function login(UserModel $userModel, \Closure $callback = null)
     {
+
         /*
          *  set vars like request fields and user model
          */

@@ -12,6 +12,7 @@
 
     <!-- Bootstrap -->
     <link href="vendor/Jlib/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/Jlib/css/jquery-ui.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendor/Jlib/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -19,6 +20,7 @@
 
     <!-- Custom Theme Style -->
     <link href="vendor/Jlib/build/css/custom.min.css" rel="stylesheet">
+    @yield("css")
 </head>
 
 <body class="nav-md">
@@ -94,6 +96,7 @@
 
 <!-- jQuery -->
 <script src="vendor/Jlib/vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendor/Jlib/js/jquery-ui.min.js"></script>
 <!-- Bootstrap -->
 <script src="vendor/Jlib/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->

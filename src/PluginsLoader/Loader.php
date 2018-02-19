@@ -9,8 +9,10 @@ namespace Jlib\PluginsLoader;
  * Time: 12:08 م
  */
 use File;
-use Jlib\Misc\ClassModifire;
-use Jlib\Misc\UUID;
+use Jlib\JlibServiceProvider;
+use Jlib\Misc\ClassModifier;
+use Jlib\ServiceProvider\LoadModule;
+
 
 class Loader
 {
@@ -18,8 +20,11 @@ class Loader
     private static $_classes;
     private static $_pluginPath;
 
-    public static function load($pluginsPath)
+    public static function load(JlibServiceProvider $provider, $pluginsPath)
     {
+       // LoadModule::make($provider,$pluginsPath)->load();
+
+
         self::$_pluginPath = $pluginsPath;
     }
 
@@ -28,14 +33,13 @@ class Loader
     {
         self::$_classes = [];
 
-        foreach(File::directories(self::$_pluginPath) as $directory) {
-            dd(UUID::create());
-           $file = $directory.DIRECTORY_SEPARATOR."Loader.php";
-           $namespace =ClassModifire::extractNamespaceFromFile($file);
-           dd($namespace);
+        foreach (File::directories(self::$_pluginPath) as $directory) {
 
+            $file = $directory . DIRECTORY_SEPARATOR . "Loader.php";
+            $namespace = ClassModifier::extractNamespaceFromFile($file);
+            self::$_classes[] = $namespace . "\\Loader:$scope";
         }
-
+//dd(self::$_classes);
         return self::$_classes;
     }
 

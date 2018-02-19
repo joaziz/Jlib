@@ -50,7 +50,7 @@ class JlibServiceProvider extends ServiceProvider
         $pluginsPath = base_path("vendor{$this->DS}jlib{$this->DS}plugins{$this->DS}src");
 
         if (File::exists($pluginsPath))
-            Loader::load($pluginsPath);
+            Loader::load($this,$pluginsPath);
 
 
         /*
@@ -72,7 +72,7 @@ class JlibServiceProvider extends ServiceProvider
          * and past old one and change paths and name
          */
         LoadModule::make($this, base_path("Modules"))
-            ->setMenuMaker(ModuleLinks::instance("Modules"))
+//            ->setMenuMaker(ModuleLinks::instance("Modules"))
             ->load();
 
 
