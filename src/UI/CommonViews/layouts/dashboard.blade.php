@@ -112,6 +112,26 @@
     })
     console.log(this)
 </script>
+<script>
+    $(".delete").on("submit", function(){
+        return confirm("Do you want to delete this item?");
+    });
+</script>
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+
+<script src="{{url('ckeditor/ckeditor.js')}}"></script>
+<script>
+    var ckview = $('.richtext').ckeditor();
+    CKEDITOR.replace(ckview,{
+        language:'en'
+    });
+
+</script>
+<script>
+    $('.richtext').ckeditor();
+    // $('.textarea').ckeditor(); // if class is prefered.
+</script>
 @yield("js")
 </body>
 </html>
