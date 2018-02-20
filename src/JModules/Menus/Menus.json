@@ -1,0 +1,112 @@
+{
+  "name": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"text",
+      "index": true,
+      "lang": true,
+      "required": true
+    },
+    "database":{
+      "type":"string",
+      "required": true,
+      "unique":false,
+      "number_type": 190
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required|min:10","edit":"required|min:10"}
+  },
+  "link": {
+    "controller":{
+      "create":true,
+      "edit":false
+    },
+    "form":{
+      "type":"text",
+      "index": true,
+      "lang": false,
+      "required": true
+    },
+    "database":{
+      "type":"string",
+      "required": true,
+      "unique":true,
+      "number_type": ""
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required","edit":"required"}
+  },
+  "icon": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"text",
+      "index": true,
+      "lang": false,
+      "required": true
+    },
+    "database":{
+      "type":"string",
+      "required": false,
+      "unique":false,
+      "number_type": 20
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"","edit":""}
+  },
+  "parent_id": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"Number",
+      "index": false,
+      "lang": false,
+      "required": false
+    },
+    "database":{
+      "type":"integer",
+      "required": false,
+      "unique":false,
+      "number_type": 3
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"","edit":""}
+  },
+  "order": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"Number",
+      "index": false,
+      "lang": false,
+      "required": false
+    },
+    "database":{
+      "type":"integer",
+      "required": false,
+      "unique":false,
+      "number_type": 3
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"","edit":""}
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "title": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"text",
+      "index": true,
+      "lang": true,
+      "required": true
+    },
+    "database":{
+      "type":"string",
+      "required": true,
+      "unique":false,
+      "number_type": 190
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required|min:5","edit":"required|min:5"}
+  },
+  "content": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"text",
+      "index": true,
+      "lang": true,
+      "required": true
+    },
+    "database":{
+      "type":"string",
+      "required": true,
+      "unique":false,
+      "number_type": 190
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required|min:5","edit":"required|min:5"}
+  },
+  "status": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"number",
+      "index": false,
+      "lang": false,
+      "required": true
+    },
+    "database":{
+      "type":"integer",
+      "required": true,
+      "unique":false,
+      "number_type": 2
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required","edit":"required"}
+  },
+  "meta": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"text",
+      "index": false,
+      "lang": true,
+      "required": false
+    },
+    "database":{
+      "type":"text",
+      "required": true,
+      "unique":false,
+      "number_type":""
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"","edit":""}
+  },
+  "slug": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"text",
+      "index": true,
+      "lang": false,
+      "required": true
+    },
+    "database":{
+      "type":"string",
+      "required": true,
+      "unique":false,
+      "number_type": 190
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required|min:5","edit":"required|min:5"}
+  },
+  "template": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"select",
+      "index": false,
+      "lang": false,
+      "required": true
+    },
+    "database":{
+      "type":"integer",
+      "required": true,
+      "unique":false,
+      "number_type": 2
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required","edit":"required"}
+  },
+  "publish_date": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"date",
+      "index": false,
+      "lang": false,
+      "required": true
+    },
+    "database":{
+      "type":"date",
+      "required": true,
+      "unique":false,
+      "number_type":""
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"required","edit":"required"}
+  },
+  "css": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"textarea",
+      "index": false,
+      "lang": false,
+      "required": false
+    },
+    "database":{
+      "type":"text",
+      "required": false,
+      "unique":false,
+      "number_type":""
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"","edit":""}
+  },
+  "js": {
+    "controller":{
+      "create":true,
+      "edit":true
+    },
+    "form":{
+      "type":"textarea",
+      "index": false,
+      "lang": false,
+      "required": false
+    },
+    "database":{
+      "type":"text",
+      "required": false,
+      "unique":false,
+      "number_type":""
+    },
+    "model":{
+      "hidden": false
+    },
+    "validator":{"create":"","edit":""}
+  }
+}

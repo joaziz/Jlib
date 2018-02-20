@@ -47,10 +47,10 @@ class JlibServiceProvider extends ServiceProvider
          * it responsable for load plugins from plugin package
          *
          */
-        $pluginsPath = base_path("vendor{$this->DS}jlib{$this->DS}plugins{$this->DS}src");
+        $pluginsPath = __DIR__ . $this->DS . "Plugins";
 
         if (File::exists($pluginsPath))
-            Loader::load($this,$pluginsPath);
+            Loader::load($this, $pluginsPath);
 
 
         /*
@@ -60,7 +60,7 @@ class JlibServiceProvider extends ServiceProvider
       * load jlib modules like auth menus pages etc...
       */
 
-        $path = base_path("vendor{$this->DS}jlib{$this->DS}jmodules{$this->DS}src");
+        $path =__DIR__ . $this->DS . "JModules";
 
         if (File::exists($path))
             LoadModule::make($this, $path)->load();
